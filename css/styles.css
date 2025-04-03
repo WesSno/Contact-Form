@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla", sans-serif;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+:root {
+  /*************** Primary ****************/
+  --green-200-lighter: hsl(148, 38%, 91%);
+  --green-600-medium: hsl(169, 82%, 27%);
+  --green-800-dark: hsl(168, 97%, 12%);
+  --red: hsl(0, 66%, 54%);
+
+  /**************** Neutral *************/
+
+  --white: hsl(0, 0%, 100%);
+  --grey-500-medium: hsl(186, 15%, 59%);
+  --grey-900-darker: hsl(187, 24%, 22%);
+}
+
+body {
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  background-color: rgb(227, 237, 240);
+}
+
+h1 {
+  color: var(--grey-900-darker);
+  font-weight: 700;
+}
+
+/***************************************************** FORM ******************************************/
+
+form {
+  background-color: var(--white);
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.5em;
+  gap: 1.5rem;
+  border-radius: 10px;
+}
+
+input {
+  padding: 1em 1.5em;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid var(--grey-500-medium);
+  cursor: pointer;
+}
+
+input:hover {
+  border: 1px solid var(--green-600-medium);
+}
+
+input:focus {
+  border: 1px solid var(--green-600-medium);
+  background-color: none;
+}
+
+label {
+  font-size: 1.2em;
+  color: var(--grey-900-darker);
+  margin-bottom: 0.5em;
+}
+
+.green-asterisk {
+  color: var(--green-600-medium);
+}
+
+/************* NAME INPUTS *************/
+.name-section {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  width: 100%;
+}
+
+.first-name,
+.second-name {
+  width: 100%;
+}
+
+input[name="first-name"],
+input[name="last-name"] {
+  width: 100%;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/************* EMAIL INPUTS *************/
+.email-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#email {
+  margin-bottom: 0.5em;
+}
+
+/************* RADIO SECTION *************/
+.query-type input[type="radio"] {
+  display: none;
+} /** Hide the radio button **/
+
+.query-type {
+  display: flex;
+  flex-wrap: wrap;
+  border: none;
+  width: 100%;
+  gap: 0.2em;
+}
+
+legend {
+  margin-bottom: 0.5em;
+}
+
+.query-type label {
+  display: flex;
+  align-items: center;
+  padding: 0.7em 1.5em;
+  border: 1px solid var(--grey-500-medium);
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.query-type input[type="radio"]:checked + .general-enquiry-border,
+.query-type input[type="radio"]:checked + .request-border {
+  background-color: var(--green-200-lighter); /* Light green background */
+  border: 2px solid var(--green-600-medium); /* Deep green border */
+}
+
+/** Styling the custom radio button **/
+
+.custom-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--grey-500-medium);
+  display: inline-block;
+  margin-right: 0.5em;
+  position: relative;
+}
+
+/** Custom radio button when checked **/
+
+input[type="radio"]:checked + .custom-radio {
+  background-color: var(--white);
+  border-color: var(--green-600-medium);
+}
+
+/** Inner dot when checked **/
+input[type="radio"]:checked + .custom-radio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  background-color: var(--green-600-medium);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.query-type label:hover {
+  border-color: var(--green-600-medium);
+  background-color: var(--green-200-lighter);
+}
+/************* MESSAGE SECTION *************/
+.message-section {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.message-section * {
+  width: 100%;
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 100%;
+  height: 300px;
+  padding: 0.8em 1.5em;
+}
+
+textarea:hover {
+  border: 1px solid var(--green-600-medium);
+}
+
+textarea:focus {
+  border: 1px solid var(--green-600-medium);
+  outline: none;
+}
+
+/************* CONSENT SECTION *************/
+.consent-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.5em;
+}
+
+.consent-section label {
+  width: 85%;
+  margin-bottom: 0;
+}
+
+input[type="checkbox"] {
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: none;
+}
+
+/************* SUBMIT *************/
+input[type="submit"] {
+  font-size: 1.2em;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--green-600-medium);
+  color: white;
+  font-weight: 700;
+  padding: 0.8em 0;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--green-800-dark);
+}
+
+/****************** MEDIA: 1440 PX *************************/
+@media only screen and (min-width: 1000px) {
+  form {
+    max-width: 700px;
+    width: 100%;
+    padding: auto 2.5em;
+  }
+
+  input {
+    border-radius: 5px;
+  }
+
+  /************** NAME INPUTS ***********/
+  .name-section {
+    flex-direction: row;
+    gap: 1em;
+  }
+
+  /************* RADIO SECTION ********/
+  .query-type {
+    display: grid;
+    grid-template-columns: 317px 10px 317px;
+    grid-template-areas:
+      "gen .... req"
+      "err err err";
+  }
+
+  .general-enquiry-border {
+    grid-area: gen;
+  }
+
+  .request-border {
+    grid-area: req;
+  }
+
+  .query-type span {
+    grid-area: err;
+  }
+
+  .query-type label {
+    width: 100%;
+  }
+  /************* MESSAGE SECTION *************/
+
+  textarea {
+    height: 100px;
+  }
+
+  /************* CONSENT SECTION *************/
+  .consent-section label {
+    width: fit-content;
+  }
+}
+
+/********** ERROR STYLES *************/
+input.invalid {
+  border-color: var(--red);
+}
+
+.err-message {
+  color: var(--red);
+  font-style: italic;
+  display: none;
+}
+
+.err-message.display {
+  display: block;
+}
