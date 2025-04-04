@@ -8,9 +8,12 @@ const errMsg = document.querySelectorAll(".err-message");
 const email = document.getElementById("email");
 
 function emptyFields() {
+  let isValid = true;
+
   if (fName.value.trim() === "") {
     fName.classList.add("invalid");
     errMsg[0].classList.add("display");
+    isValid = false;
   } else {
     fName.classList.remove("invalid");
     errMsg[0].classList.remove("display");
@@ -19,6 +22,7 @@ function emptyFields() {
   if (lName.value.trim() === "") {
     lName.classList.add("invalid");
     errMsg[1].classList.add("display");
+    isValid = false;
   } else {
     lName.classList.remove("invalid");
     errMsg[1].classList.remove("display");
@@ -27,6 +31,7 @@ function emptyFields() {
   if (textBox.value.trim() === "") {
     textBox.classList.add("invalid");
     errMsg[4].classList.add("display");
+    isValid = false;
   } else {
     textBox.classList.remove("invalid");
     errMsg[4].classList.remove("display");
@@ -38,6 +43,7 @@ function emptyFields() {
 
   if (!isRadioSelected) {
     document.querySelector(".query-type .err-message").style.display = "block";
+    isValid = false;
   } else {
     document.querySelector(".query-type .err-message").style.display = "none";
   }
@@ -49,6 +55,8 @@ function emptyFields() {
     errMsg[5].classList.remove("invalid");
     errMsg[5].classList.remove("display");
   }
+
+  return isValid;
 }
 
 function validateEmail() {
@@ -57,14 +65,25 @@ function validateEmail() {
   if (!emailRegex.test(email.value.trim())) {
     email.classList.add("invalid");
     errMsg[2].classList.add("display");
+    return false;
   } else {
     email.classList.remove("invalid");
     errMsg[2].classList.remove("display");
+    return true;
   }
 }
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  emptyFields();
-  validateEmail();
+
+  const isFormValid = emptyFields();
+  const isEmailValid = validateEmail();
+
+  if (isFormValid && isEmailValid) {
+    document.getElementById("successMessage").classList.remove("hidden");
+    setTimeout(() => {
+      document.getElementById("successMessage").classList.add("hidden");
+      document.getElementById("contact-form").reset();
+    }, 3000);
+  }
 });

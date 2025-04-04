@@ -33,6 +33,7 @@
 body {
   display: flex;
   font-size: 16px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
@@ -320,4 +321,23 @@ input.invalid {
 
 .err-message.display {
   display: block;
+}
+
+/************* SUCCESS MESSAGE ***************/
+#successMessage {
+  background-color: var(--grey-900-darker);
+  color: white;
+  padding: 1.3em;
+  border-radius: 10px;
+}
+
+#successMessage .sent {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.hidden {
+  display: none;
 }
